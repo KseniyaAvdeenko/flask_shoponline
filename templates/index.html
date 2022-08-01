@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Онлайн-магазин</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="main">
+    <h1>Онлайн-магазин</h1>
+    <div class="boxes">
+      {% for el in data %}
+        <div class="item-box">
+          <div class="item-body">
+              <span><a class="item-title" href="#">{{ el.title }}</a></span>
+              <span class="price">Цена: {{ el.price }} $</span>
+              <span class="category">Категория: {{ el.category }}</span>
+               <span class="active">
+                   {% if el.isActive %}
+                    Есть в наличии
+                   {% endif %}
+               </span>
+              <span class="category">{{ el.isAct }}</span>
+
+            <button class="item-btn">В корзину</button>
+          </div>
+        </div>
+      {% endfor %}
+    </div>    
+{% endblock %}
